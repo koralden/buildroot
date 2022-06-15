@@ -1,0 +1,20 @@
+
+all: prepare build deploy
+	@echo "done"
+
+prepare: .config
+
+.config: fika/longdong.config
+	cp $< $@
+
+build:
+	make
+
+deploy:
+	@echo "todo"
+
+# for space issue, replace with shared path
+fika/toolchain: fika/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16.tar.gz
+	tar xvfz $< -C fika && \
+	ln -sf toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16 $@
+	tar cvf - -C $@ include lib | tar xvf - -C $@/usr
