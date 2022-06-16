@@ -1,0 +1,10 @@
+config BR2_PACKAGE_AWS_IOT_SDK_C
+	bool "aws-iot-sdk-c"
+	#select BR2_PACKAGE_OPENSSL
+	#select BR2_PACKAGE_UTIL_LINUX
+	#select BR2_PACKAGE_UTIL_LINUX_LIBUUID
+	help
+	  Amazon AWS IoT Hub device SDK for C is used
+	  to connect devices running C code to Azure IoT Hub.
+
+	  https://github.com/aws/aws-iot-device-sdk-embedded-C
