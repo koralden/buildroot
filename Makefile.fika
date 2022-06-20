@@ -1,5 +1,7 @@
 
-all: prepare build deploy
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+all: sdk prepare build deploy
 	@echo "done"
 
 prepare: .config
@@ -13,8 +15,16 @@ build:
 deploy:
 	@echo "todo"
 
+sdk: package/longdong
+
+package/longdong:
+	git clone --recurse-submodules git@github.com:koralden/longdong.git $@
+	grep -q longdong package/Config.in || sed '1 a\source "package/longdong/Config.in"' -i package/Config.in
+
 # for space issue, replace with shared path
 fika/toolchain: fika/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16.tar.gz
 	tar xvfz $< -C fika && \
 	ln -sf toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16 $@
 	tar cvf - -C $@ include lib | tar xvf - -C $@/usr
+
+.PHONY: all prepare build deploy sdk
