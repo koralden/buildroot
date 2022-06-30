@@ -1,4 +1,5 @@
 menu "Target packages"
+source "package/longdong/Config.in"
 
 	source "package/busybox/Config.in"
 	source "package/skeleton/Config.in"
