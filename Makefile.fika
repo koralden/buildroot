@@ -30,4 +30,13 @@ fika/toolchain: fika/toolchain-aarch64_cortex-a53_gcc-5.2.0_musl-1.1.16.tar.gz
 app:
 	make ${TARGET}
 
-.PHONY: all prepare build deploy sdk
+release:
+	rm -rf output/target/*
+	make fika-redis-rebuild
+	make fika-easy-setup-rebuild
+	make fika-iot-gateway-rebuild
+	make fika-manager-rebuild
+	make fika-opennds-rebuild
+	make jq-rebuild
+
+.PHONY: all prepare build deploy sdk release
