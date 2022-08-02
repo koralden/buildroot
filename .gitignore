@@ -13,3 +13,6 @@
 *.rej
 *~
 *.pyc
+
+fika-kdaemon_*.tar.gz
+package/longdong
