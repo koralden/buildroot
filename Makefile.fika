@@ -34,7 +34,7 @@ release:
 	rm -rf output/target/*
 	make fika-redis-rebuild
 	make fika-easy-setup-rebuild
-	make fika-iot-gateway-rebuild
+	#make fika-iot-gateway-rebuild
 	make fika-manager-rebuild
 	make fika-opennds-rebuild
 	make jq-rebuild
