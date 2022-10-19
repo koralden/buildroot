@@ -38,5 +38,6 @@ release:
 	make fika-manager-rebuild
 	make fika-opennds-rebuild
 	make jq-rebuild
+	rm -rf output/target/usr/share output/target/usr/include output/target/usr/lib/lib*.*a output/target/usr/lib/pkgconfig
 
 .PHONY: all prepare build deploy sdk release
